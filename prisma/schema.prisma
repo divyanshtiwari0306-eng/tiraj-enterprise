@@ -1,0 +1,42 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Product {
+  id          Int     @id @default(autoincrement())
+  name        String
+  price       String
+  description String
+  image       String
+  isAvailable Boolean @default(true)
+}
+
+model Ad {
+  id          Int      @id @default(autoincrement())
+  title       String
+  imageUrl    String
+  placement   String
+  link        String?
+  isActive    Boolean  @default(true)
+  startDate   DateTime @default(now())
+  endDate     DateTime
+}
+
+model PaymentMethod {
+  id          Int     @id @default(autoincrement())
+  provider    String
+  isEnabled   Boolean @default(true)
+}
+
+model BusinessInfo {
+  id      Int    @id @default(autoincrement())
+  name    String @default("TIRAJ ENTERPRISE")
+  gst     String @default("27GNBPR0223Q1ZM")
+  phone   String @default("7020273446")
+  address String @default("Rajprabha F Block, Gala No. 4, Bhoidapada, Vasai East – 401208")
+}
