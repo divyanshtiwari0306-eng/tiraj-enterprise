@@ -297,3 +297,16 @@ body{background:#f4f5f7;color:#121318}
 @media(max-width:1050px){.product-grid{grid-template-columns:repeat(2,1fr)}.desktop-nav{gap:20px}.brand-logo{width:180px}.brand-logo img{width:180px}.hero-copy{padding:55px 45px}}
 @media(max-width:900px){.site-header{position:sticky}.desktop-nav{background:#151619;color:#fff;top:82px;padding:12px 24px 20px}.desktop-nav a{border-bottom:1px solid #2d2f34}.product-grid{grid-template-columns:repeat(2,1fr)}.hero{min-height:0}.hero-visual{min-height:430px}.hero-copy{padding:48px 30px}.brand-logo{width:160px}.brand-logo img{width:160px}}
 @media(max-width:560px){.announcement{gap:8px;white-space:nowrap;overflow:hidden}.announcement span{display:none}.announcement:after{content:'✦ TIRAJ ENTERPRISE • Special online offers ✦';font-size:10px}.header-inner{min-height:70px}.brand-logo{width:135px;height:52px}.brand-logo img{width:135px;height:60px}.header-actions{gap:4px}.cart-button{height:38px;padding:0 8px}.cart-button span{display:none}.hero{margin-top:15px}.hero-copy{padding:35px 22px}.hero h1{font-size:41px}.hero-visual{min-height:320px}.hero-orbit{width:270px;height:270px}.hero-image{padding:24px}.hero-badge{top:14px;right:14px;min-width:105px;padding:10px}.product-grid{grid-template-columns:1fr}.product-image-wrap{height:280px}.section-heading h2{font-size:34px}.section-heading{align-items:flex-start}.product-actions{grid-template-columns:1fr 1fr}.story-copy{padding:42px 25px}.feature-copy h2{font-size:36px}.faq-section{padding:45px 20px 65px}.brand-track{animation-duration:22s}}
+
+/* Product specification cards */
+.specifications-section { padding: 76px 0 30px; }
+.specifications-heading { text-align: center; max-width: 720px; margin: 0 auto 30px; }
+.specifications-heading h2 { font-size: clamp(28px,3.5vw,40px); line-height: 1.1; letter-spacing: -.04em; margin: 10px 0 12px; }
+.specifications-heading p { color: #777; line-height: 1.6; }
+.specifications-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; }
+.specification-card { border: 1px solid #e5e5e5; border-radius: 14px; padding: 25px; background: #fafafa; text-align: center; }
+.specification-card span, .specification-card strong, .specification-card small { display: block; }
+.specification-card span { color: #777; font-size: 12px; font-weight: 700; }
+.specification-card strong { margin: 12px 0 8px; font-size: clamp(19px,2.2vw,25px); }
+.specification-card small { color: #777; font-size: 12px; line-height: 1.5; }
+@media (max-width: 700px) { .specifications-grid { grid-template-columns: 1fr; } }
