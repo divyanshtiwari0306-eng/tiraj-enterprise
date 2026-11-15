@@ -1,0 +1,35 @@
+name: TIRAJ build and package
+on:
+  push:
+    branches: [feature/razorpay-checkout]
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npx prisma generate
+        env:
+          DATABASE_URL: postgresql://placeholder:placeholder@localhost:5432/tiraj
+      - run: npm run lint
+      - run: npm run build
+        env:
+          DATABASE_URL: postgresql://placeholder:placeholder@localhost:5432/tiraj
+          RAZORPAY_KEY_ID: rzp_test_placeholder
+          RAZORPAY_KEY_SECRET: placeholder_secret
+      - name: Package source ZIP
+        run: zip -r TIRAJ-ENTERPRISE-FINAL-UPDATED.zip . -x '.git/*' 'node_modules/*' '.next/*' '.env.local' '.vercel/*'
+      - uses: actions/upload-artifact@v4
+        with:
+          name: TIRAJ-ENTERPRISE-FINAL-UPDATED
+          path: TIRAJ-ENTERPRISE-FINAL-UPDATED.zip
+          if-no-files-found: error
+          retention-days: 14
